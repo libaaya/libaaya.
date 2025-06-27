@@ -1,0 +1,92 @@
+// LIBAAYA Official Website (Modern Aesthetic Design)
+
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+export default function Libaaya() {
+  return (
+    <div className="bg-[#fdfaf7] text-[#2c2c2c] font-sans">
+      {/* Header */}
+      <header className="flex justify-between items-center px-6 py-4 shadow-md bg-white sticky top-0 z-50">
+        <h1 className="text-2xl font-bold tracking-wide">LIBAAYA</h1>
+        <nav className="space-x-4 text-sm font-medium">
+          <a href="#collections" className="hover:text-[#c8a14e]">Collections</a>
+          <a href="#about" className="hover:text-[#c8a14e]">About</a>
+          <a href="#contact" className="hover:text-[#c8a14e]">Contact</a>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <section className="h-screen flex flex-col justify-center items-center text-center px-4 bg-[url('/hero-bg.jpg')] bg-cover bg-center">
+        <motion.h2 
+          className="text-4xl md:text-6xl font-semibold mb-4 text-white drop-shadow-xl"
+          initial={{ opacity: 0, y: 40 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 1 }}
+        >
+          Power. Style. Heritage.
+        </motion.h2>
+        <motion.p 
+          className="text-lg md:text-xl text-white mb-6 max-w-xl"
+          initial={{ opacity: 0 }} 
+          animate={{ opacity: 1 }} 
+          transition={{ delay: 0.6, duration: 1 }}
+        >
+          Where modern royalty meets timeless fashion.
+        </motion.p>
+        <Button className="bg-[#c8a14e] text-white px-6 py-2 text-base font-semibold rounded-full hover:bg-[#b38f3d] transition">
+          Explore Now <ArrowRight className="ml-2 h-4 w-4" />
+        </Button>
+      </section>
+
+      {/* Collections */}
+      <section id="collections" className="py-16 px-6 bg-[#fffaf0]">
+        <h3 className="text-3xl font-semibold text-center mb-10">Featured Styles</h3>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[1, 2, 3].map((item) => (
+            <Card key={item} className="overflow-hidden rounded-2xl shadow-md">
+              <img 
+                src={`/collection${item}.jpg`} 
+                alt={`Collection ${item}`} 
+                className="w-full h-[300px] object-cover" 
+              />
+              <CardContent className="p-4">
+                <h4 className="text-lg font-medium mb-2">Style {item}</h4>
+                <p className="text-sm text-gray-600">Modern silhouettes, royal tones, and crafted elegance — discover the soul of LIBAAYA.</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="py-20 bg-white text-center px-6">
+        <div className="max-w-3xl mx-auto">
+          <h3 className="text-3xl font-semibold mb-6">About LIBAAYA</h3>
+          <p className="text-lg text-gray-700">
+            LIBAAYA is not just a fashion brand, it's a movement to bring bold, aesthetic, and powerful design rooted in Indian legacy and infused with global minimalism. Designed for the expressive souls who dress with vision.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-20 px-6 bg-[#f7f3ea]">
+        <div className="max-w-xl mx-auto text-center">
+          <h3 className="text-3xl font-semibold mb-6">Let’s Connect</h3>
+          <p className="text-gray-700 mb-4">Email us at <a href="mailto:contact@libaaya.in" className="text-[#c8a14e] underline">contact@libaaya.in</a> or follow us on Instagram <br/> <span className="text-black font-medium">@libaaya.brand</span></p>
+          <Button className="bg-black text-white px-6 py-2 text-base font-semibold rounded-full hover:bg-[#2c2c2c] transition">
+            Follow on Instagram
+          </Button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#2c2c2c] text-white text-sm text-center py-6">
+        <p>&copy; 2025 LIBAAYA. Made in India 🇮🇳</p>
+      </footer>
+    </div>
+  );
+}
